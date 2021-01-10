@@ -10,7 +10,6 @@ description = "Call me Bogdi"
 profilePicture = "images/DSC_0150_min.jpg"
 displayMode = "dark"
 
-
 [menu]
 
   [[menu.main]]
@@ -30,5 +29,4 @@ displayMode = "dark"
   weight = 300
   identifier = "about"
   url = "/about/"
-
 
