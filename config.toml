@@ -1,7 +1,7 @@
 baseURL = "https://bogdi.xyz/"
 languageCode = "en-us"
 title = "Bogdi"
-theme = "anubis"
+theme = "anatole"
 
 [params]
 title = "I'm Bogdan Kurnosov"

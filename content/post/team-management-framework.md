@@ -1,12 +1,10 @@
 ---
-title: Management framework
+title: Team Management framework
 tags:
 - management
-date: 2021-01-10
-publishdate: 2021-01-10
+date: 2021-01-11
+publishdate: 2021-01-11
 ---
-
-# Management framework
 
 ## Goals of this page
 
