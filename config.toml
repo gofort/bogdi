@@ -1,0 +1,32 @@
+baseURL = "https://bogdi.xyz/"
+languageCode = "en-us"
+title = "Bogdi"
+theme = "anatole"
+
+[params]
+title = "I'm Bogdan Kurnosov"
+author = "Bogdan Kurnosov"
+description = "Call me Bogdi"
+profilePicture = "images/DSC_0150_min.jpg"
+displayMode = "dark"
+
+[menu]
+
+  [[menu.main]]
+  name = "Home"
+  identifier = "home"
+  weight = 100
+  url = "/"
+
+  [[menu.main]]
+  name = "Posts"
+  weight = 200
+  identifier = "posts"
+  url = "/post/"
+
+  [[menu.main]]
+  name = "About"
+  weight = 300
+  identifier = "about"
+  url = "/about/"
+
