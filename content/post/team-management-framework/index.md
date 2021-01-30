@@ -1,9 +1,11 @@
 ---
-title: Team Management framework
+title: "Team Management framework"
+description: "Structured management practices"
+date: "2021-01-11"
+slug: "team-management-framework"
+image: "cover.jpg"
 tags:
-- management
-date: 2021-01-11
-publishdate: 2021-01-11
+  - management
 ---
 
 ## Goals of this page
