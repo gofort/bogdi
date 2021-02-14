@@ -2,6 +2,7 @@
 title: "Team Management framework"
 description: "Structured management practices"
 date: "2021-01-11"
+lastmod: "2021-02-07"
 slug: "team-management-framework"
 image: "cover.jpg"
 tags:
