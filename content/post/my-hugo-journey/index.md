@@ -2,7 +2,7 @@
 title: "My first post using Hugo"
 description: "Just my first post using Hugo and that's it"
 date: "2021-01-10"
-lastmod: "2021-02-07"
+lastmod: "2021-02-28"
 slug: "first-hugo-post"
 image: "cover.jpg"
 tags:
@@ -50,3 +50,7 @@ tags:
 
 Your post here
 ```
+
+3. Embed youtube video
+
+[Just open this](https://gohugo.io/content-management/shortcodes/#example-youtube-input)
