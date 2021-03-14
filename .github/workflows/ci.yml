@@ -45,6 +45,6 @@ jobs:
           push: true
           tags: |
             bogdi.jfrog.io/blog/bogdi:latest
-            bogdi.jfrog.io/blog/bogdi:${GITHUB_SHA}
+            bogdi.jfrog.io/blog/bogdi:${{github.sha}}
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
