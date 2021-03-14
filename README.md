@@ -1,0 +1,3 @@
+# bogdi
+
+Just my blog :)
