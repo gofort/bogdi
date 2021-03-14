@@ -1,0 +1,14 @@
+name: Build
+
+on: push
+
+jobs:
+  build:
+    name: Build static files
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Run Build
+        uses: klakegg/hugo:0.81.0-busybox
+        run: hugo -D --baseURL https://bogdi.xyz/
