@@ -4,3 +4,10 @@
 
 This is source code of my blog.
 
+## Tech stack of this blog
+
+* GitHub Actions
+* Cloudflare DNS
+* Jfrog Artifactory
+* G-Core Labs CDN
+* G-Core Labs Cloud (VM)
