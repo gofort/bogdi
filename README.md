@@ -1,3 +1,6 @@
-# bogdi
+# Bogdi Blog
 
-Just my blog :)
+[![ci](https://github.com/gofort/bogdi/actions/workflows/ci.yml/badge.svg)](https://github.com/gofort/bogdi/actions/workflows/ci.yml)
+
+This is source code of my blog.
+
