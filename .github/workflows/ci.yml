@@ -39,6 +39,10 @@ jobs:
         with:
           name: static
           path: public
+      - name: Display structure of downloaded files
+        run: ls -R
+      - name: Display structure of downloaded files
+        run: ls -R public
       - name: Build and push
         id: docker_build
         uses: docker/build-push-action@v2
