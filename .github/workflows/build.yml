@@ -11,4 +11,6 @@ jobs:
         uses: actions/checkout@v2
       - name: Run Build
         uses: klakegg/hugo:0.81.0-busybox
-        run: hugo -D --baseURL https://bogdi.xyz/
+        with:
+          entrypoint: hugo
+          args: -D --baseURL https://bogdi.xyz/
