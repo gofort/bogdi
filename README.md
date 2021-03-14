@@ -6,6 +6,7 @@ This is source code of my blog.
 
 ## Tech stack of this blog
 
+* Hugo
 * GitHub Actions
 * Cloudflare DNS
 * Jfrog Artifactory
