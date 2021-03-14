@@ -54,3 +54,15 @@ jobs:
             bogdi.jfrog.io/blog/bogdi:${{github.sha}}
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
+
+  deploy-image:
+    runs-on: ubuntu-20.04
+    needs: build-image
+    steps:
+    - name: run container using ssh
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.KEY }}
+        script: sudo docker rm -fv `sudo docker ps -aq` || true && sudo docker run -d --restart always -p 80:80 --pull always bogdi.jfrog.io/blog/bogdi:latest
