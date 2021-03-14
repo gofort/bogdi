@@ -8,7 +8,7 @@ This is source code of my blog.
 
 * Hugo
 * GitHub Actions
-* Cloudflare DNS
 * Jfrog Artifactory
-* G-Core Labs CDN
 * G-Core Labs Cloud (VM)
+* Cloudflare DNS
+* G-Core Labs CDN
