@@ -10,7 +10,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Run Build
-        uses: klakegg/hugo:0.81.0-busybox
+        uses: klakegg/hugo@0.81.0-busybox
         with:
           entrypoint: hugo
           args: -D --baseURL https://bogdi.xyz/
