@@ -9,6 +9,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+        with:
+          submodules: 'recursive'
       - name: Run Build
         uses: docker://klakegg/hugo:0.81.0-busybox
         with:
