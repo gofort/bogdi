@@ -117,6 +117,12 @@ menu:
           weight: -60
           pre: search
 
+        - identifier: consultation
+          name: Free consultation
+          url: https://calendly.com/kurnosov_bogdan/consultation
+          weight: -60
+          pre: call
+
 related:
     includeNewer: true
     threshold: 60
