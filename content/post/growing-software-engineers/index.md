@@ -1,7 +1,8 @@
 ---
 title: "Growing Software Engineers"
-description: "My first attempt to grow software engineers applying systematic approach"
+description: "My approach in growing software engineers"
 date: "2021-02-07"
+lastmod: "2021-03-28"
 slug: "growing-software-engineers"
 image: "cover.jpg"
 tags:
@@ -54,4 +55,4 @@ Because in other case it is impossible to understand if you have grown or not.
 
 ### Conclusion
 
-This is just my first try to answer the question which was described in the beginning of this article. I am not sure that it is correct, but at least I need to try and see the results. If you have any ideas on how to grow software engineers better, please write in comments :)
+As I see in real life this approach gives positive results. Firslty, code review became much interesting than it was, because team members decline pull requests and they need to negotiate each time growing their soft and technical skills during negotiation. Secondly, they started to think more that their team members are waiting for their review, so time management skills improved. Thirdly, now they think about size of their pull requests, they understand that it is not cool to review something big, because it is hard. To conclude, it helped them to grow and this was our goal, so let's celebrate :)
