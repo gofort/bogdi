@@ -1,6 +1,6 @@
 ---
 title: "Anti-fraud for Beginners"
-description: ""
+description: "3 Simple steps to stop money loss"
 date: "2021-03-28"
 slug: "anti-fraud-beginners"
 tags:
