@@ -117,8 +117,8 @@ menu:
           weight: -60
           pre: search
 
-        - identifier: consultation
-          name: Free consultation
+        - identifier: call
+          name: Let's talk about management!
           url: https://calendly.com/kurnosov_bogdan/consultation
           weight: -60
           pre: call
