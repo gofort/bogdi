@@ -1,3 +1,3 @@
-FROM nginx:1.20.0
+FROM nginx:1.21.0
 COPY nginx/default.conf /etc/nginx/conf.d/default.conf
 COPY public /usr/share/nginx/html
