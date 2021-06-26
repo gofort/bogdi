@@ -7,8 +7,9 @@ This is source code of my blog.
 ## Tech stack of this blog
 
 * Hugo
+* Nginx
 * GitHub Actions
 * Jfrog Artifactory
 * G-Core Labs Cloud (VM)
-* Cloudflare DNS
+* G-Core Labs DNS
 * G-Core Labs CDN
