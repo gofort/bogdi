@@ -12,7 +12,7 @@ jobs:
         with:
           submodules: 'recursive'
       - name: Run Build
-        uses: docker://klakegg/hugo:0.84.4-busybox
+        uses: docker://klakegg/hugo:0.85.0-busybox
         with:
           entrypoint: hugo
           args: -D --baseURL https://bogdi.xyz/
