@@ -12,4 +12,7 @@ tags:
 
 * Special music playlists to focus
   * https://open.spotify.com/playlist/37i9dQZF1DX8Uebhn9wzrS
+* Things 3
+* Get things done
+* Google spreadsheets
 * 

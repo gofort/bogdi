@@ -15,7 +15,7 @@ jobs:
         uses: docker://klakegg/hugo:0.86.1-busybox
         with:
           entrypoint: hugo
-          args: -D --baseURL https://bogdi.xyz/
+          args: --baseURL https://bogdi.xyz/
       - name: Upload static
         uses: actions/upload-artifact@v2
         with:
