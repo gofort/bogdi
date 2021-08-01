@@ -2,7 +2,7 @@
 title: "My first post using Hugo"
 description: "Just my first post using Hugo and that's it"
 date: "2021-01-10"
-lastmod: "2021-02-28"
+lastmod: "2021-08-01"
 slug: "first-hugo-post"
 image: "cover.jpg"
 tags:
@@ -42,6 +42,7 @@ Some notes based on some days of digging:
 title: "Some title"
 description: "Hmm, description here"
 date: "2021-02-07"
+lastmod: "2021-08-01"
 slug: "some-name"
 image: "cover.jpg"
 tags:

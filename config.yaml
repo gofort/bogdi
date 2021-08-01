@@ -118,12 +118,6 @@ menu:
           weight: -60
           pre: search
 
-        - identifier: call
-          name: Let's talk about management!
-          url: https://calendly.com/kurnosov_bogdan/consultation
-          weight: -60
-          pre: call
-
 related:
     includeNewer: true
     threshold: 60
