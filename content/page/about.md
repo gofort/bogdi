@@ -1,7 +1,6 @@
 ---
 title: "About"
 aliases: ["about-us", "about-hugo", "contact"]
-lastmod: "2022-01-29"
 ---
 
 Interested in building great teams, organising delivery processes, shaping engineering culture, improving developers efficiency, migrating to cloud technologies.
