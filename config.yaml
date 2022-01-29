@@ -4,9 +4,6 @@ theme: hugo-theme-stack
 paginate: 5
 title: "Bogdan Kurnosov"
 
-# Change it to your Disqus shortname before using
-disqusShortname: bogdi-xyz
-
 # Theme i18n support
 # Available values: en, fr, id, ja, ko, pt-br, zh-cn
 DefaultContentLanguage: en
@@ -44,13 +41,7 @@ params:
             default: Licensed under CC BY-NC-SA 4.0
 
     comments:
-        enabled: true
-        provider: disqus
-        utterances:
-            # repo:
-            issueTerm: pathname
-            # label:
-            theme: preferred-color-scheme
+        enabled: false
 
     widgets:
         enabled:
@@ -116,6 +107,25 @@ menu:
           url: /search
           weight: -60
           pre: search
+
+    social:
+        - identifier: github
+          name: GitHub
+          url: https://github.com/gofort
+          params:
+            icon: brand-github
+            
+        - identifier: linkedin
+          name: Linkedin
+          url: https://www.linkedin.com/in/bogdan-kurnosov/
+          params:
+            icon: brand-linkedin
+
+        - identifier: instagram
+          name: Instagram
+          url: https://www.instagram.com/bogdi_gulyaet/
+          params:
+            icon: brand-instagram
 
 related:
     includeNewer: true
