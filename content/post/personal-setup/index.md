@@ -2,7 +2,7 @@
 title: "My minimalistic desk"
 description: "This is why you should have uncluttered desk!"
 date: "2021-02-28"
-lastmod: "2021-08-01"
+# lastmod: "2021-08-02"
 slug: "my-uncluttered-desk"
 image: "cover.jpg"
 tags:
@@ -12,6 +12,8 @@ tags:
 **Warning:** This article was seriously updated in August 2021, because time has shown that my previous setup was really bad for my health.
 
 I like minimalism in my life and of course it affects my working desk. I think it is much easier to focus on what matters when you don't have some useless stuff on your desk. At the same time it can indicate that if your desk is empty it means that you have too much time and don't know how to use it bringing more value, but who cares, I like this :)
+
+
 
 ### Benefits of uncluttered desk
 
