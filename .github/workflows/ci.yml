@@ -31,9 +31,9 @@ jobs:
       - name: Login to DockerHub
         uses: docker/login-action@v1
         with:
-          registry: bogdi.jfrog.io
-          username: ${{ secrets.JFROG_REGISTRY_USER }}
-          password: ${{ secrets.JFROG_REGISTRY_PASS }}
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
       - name: Download static
         uses: actions/download-artifact@v2
         with:
@@ -46,8 +46,8 @@ jobs:
           push: true
           context: .
           tags: |
-            bogdi.jfrog.io/blog/bogdi:latest
-            bogdi.jfrog.io/blog/bogdi:${{github.sha}}
+            ghcr.io/${{ github.repository }}:latest
+            ghcr.io/${{ github.repository }}:${{github.sha}}
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
 
@@ -61,4 +61,4 @@ jobs:
         host: ${{ secrets.SSH_HOST }}
         username: ${{ secrets.SSH_USERNAME }}
         key: ${{ secrets.SSH_KEY }}
-        script: sudo docker rm -fv `sudo docker ps -aq` || true && sudo docker run -d --restart always -p 80:80 --pull always bogdi.jfrog.io/blog/bogdi:latest
+        script: sudo docker rm -fv `sudo docker ps -aq` || true && sudo docker run -d --restart always -p 80:80 --pull always ghcr.io/${{ github.repository }}:latest
