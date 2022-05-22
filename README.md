@@ -11,6 +11,10 @@ This is source code of my blog.
 * Nginx
 * GitHub Actions
 * Github Packages
-* G-Core Labs Cloud (VM)
+* G-Core Labs Cloud (3x Virtual Machines)
+  * Consul
+  * Nomad
+  * Fabio
+  * Docker
 * G-Core Labs DNS
 * G-Core Labs CDN
