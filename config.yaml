@@ -121,6 +121,12 @@ menu:
           params:
             icon: brand-linkedin
 
+        - identifier: twitter
+          name: Twitter
+          url: https://twitter.com/bogdi_gulyaet
+          params:
+            icon: brand-twitter
+
         - identifier: instagram
           name: Instagram
           url: https://www.instagram.com/bogdi_gulyaet/
