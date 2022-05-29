@@ -12,7 +12,11 @@ job "webserver" {
 
     service {
       name = "bogdi-blog-service"
-      tags = ["urlprefix-bogdi.xyz/"]
+      tags = [
+        "urlprefix-bogdi.xyz/",
+        "traefik.enable=true",
+        "traefik.http.routers.http.rule=Host(`bogdi.xyz`)",
+      ]
       port = "http"
       check {
         name     = "alive"
