@@ -84,10 +84,10 @@ jobs:
           args: -O nomad.zip https://releases.hashicorp.com/nomad/1.3.1/nomad_1.3.1_linux_amd64.zip
       - uses: montudor/action-zip@v1
         with:
-          args: unzip nomad.zip
+          args: unzip nomad.zip -d ./bin
       - name: Set newest image
         run: |
           sed -i 's/{ IMAGE_TAG }/${{ github.sha }}/' ./nomad/bogdi.hcl
       - name: Run job
         run: |
-          nomad job run --address http://tl.lux-1.bogdi.xyz:4646 ./nomad/bogdi.hcl
+          ./bin/nomad job run --address http://tl.lux-1.bogdi.xyz:4646 ./nomad/bogdi.hcl
