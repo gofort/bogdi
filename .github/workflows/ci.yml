@@ -5,7 +5,7 @@ on: push
 jobs:
   build-static:
     name: Build static files
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -28,7 +28,7 @@ jobs:
           path: public
 
   build-image:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     needs: build-static
     steps:
       - name: Checkout code
@@ -56,20 +56,8 @@ jobs:
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
 
-  deploy-image-to-vm:
-    runs-on: ubuntu-20.04
-    needs: build-image
-    steps:
-      - name: run container using ssh
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USERNAME }}
-          key: ${{ secrets.SSH_KEY }}
-          script: sudo docker rm -fv `sudo docker ps -aq` || true && sudo docker run -d --restart always -p 80:80 --pull always ghcr.io/${{ github.repository }}:latest
-
   deploy-image-to-cluster:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     needs: build-image
     steps:
       - name: Checkout code
