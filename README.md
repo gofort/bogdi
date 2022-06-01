@@ -14,7 +14,7 @@ This is source code of my blog.
 * G-Core Labs Cloud (3x Virtual Machines)
   * Consul
   * Nomad
-  * Fabio
+  * Traefik
   * Docker
 * G-Core Labs DNS
 * G-Core Labs CDN
