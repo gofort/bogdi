@@ -15,7 +15,7 @@ job "webserver" {
       tags = [
         "traefik.enable=true",
         "traefik.http.routers.http.rule=Host(`bogdi.xyz`)",
-        "traefik.http.routers.http.entrypoints=http"
+        // "traefik.http.routers.http.entrypoints=http"
       ]
       port = "http"
       check {
