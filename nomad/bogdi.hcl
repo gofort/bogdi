@@ -14,8 +14,8 @@ job "webserver" {
       name = "bogdi-blog-service"
       tags = [
         "traefik.enable=true",
-        "traefik.http.routers.http.rule=Host(`bogdi.xyz`)",
-        "traefik.http.routers.http.entrypoints=http"
+        "traefik.http.routers.bogdi-blog.rule=Host(`bogdi.xyz`)",
+        "traefik.http.routers.bogdi-blog.entrypoints=http"
       ]
       port = "http"
       check {
