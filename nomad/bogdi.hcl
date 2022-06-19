@@ -7,6 +7,7 @@ job "webserver" {
     network {
       port "http" {
         to = 80
+        host_network = "public"
       }
     }
 
