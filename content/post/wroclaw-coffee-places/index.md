@@ -1,5 +1,5 @@
 ---
-title: "Best coffee places to work in Wrocław"
+title: "Best coffee places to work remotely in Wrocław"
 description: "If you like to work from cafes, this list of places is for you!"
 date: "2022-08-14"
 slug: "wroclaw-coffee-places"
