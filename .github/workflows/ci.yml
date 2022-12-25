@@ -66,6 +66,7 @@ jobs:
         uses: tailscale/github-action@v1
         with:
           authkey: ${{ secrets.TAILSCALE_AUTHKEY }}
+          version: 1.34.1
       - name: wget
         uses: wei/wget@v1
         with:
