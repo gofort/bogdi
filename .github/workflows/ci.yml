@@ -15,7 +15,7 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: '0.101.0'
+          hugo-version: '0.109.0'
           extended: true
 
       - name: Build
@@ -58,25 +58,15 @@ jobs:
 
   deploy-image-to-cluster:
     runs-on: ubuntu-22.04
-    needs: build-image
+    needs: deploy-image
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-      - name: Tailscale
-        uses: tailscale/github-action@v1
-        with:
-          authkey: ${{ secrets.TAILSCALE_AUTHKEY }}
-          version: 1.34.1
-      - name: wget
-        uses: wei/wget@v1
-        with:
-          args: -O nomad.zip https://releases.hashicorp.com/nomad/1.3.1/nomad_1.3.1_linux_amd64.zip
-      - uses: montudor/action-zip@v1
-        with:
-          args: unzip nomad.zip -d ./bin
-      - name: Set newest image
-        run: |
-          sed -i 's/{ IMAGE_TAG }/${{ github.sha }}/' ./nomad/bogdi.hcl
-      - name: Run job
-        run: |
-          ./bin/nomad job run --address http://tl.lux-1.bogdi.xyz:4646 ./nomad/bogdi.hcl
+
+    - name: deploy
+      uses: appleboy/ssh-action@v0.1.6
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.PRIVATE_KEY }}
+        port: ${{ secrets.PORT }}
+        script: bash -c "docker pull ghcr.io/${{ github.repository }}:${{ github.sha }} && docker rm -fv hugo && docker run --name hugo -d -p 80:80 ghcr.io/${{ github.repository }}:${{ github.sha }}"
+

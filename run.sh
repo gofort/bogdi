@@ -3,5 +3,3 @@
 # Run server locally
 
 hugo server
-
-
