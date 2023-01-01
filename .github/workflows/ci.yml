@@ -58,7 +58,7 @@ jobs:
 
   deploy-image-to-cluster:
     runs-on: ubuntu-22.04
-    needs: deploy-image
+    needs: build-image
     steps:
 
     - name: deploy
