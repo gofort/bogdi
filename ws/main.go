@@ -15,6 +15,14 @@ func main() {
 }
 
 func wsHandler(w http.ResponseWriter, r *http.Request) {
+
+	timeoutSecStr := r.URL.Query().Get("timeout_sec")
+	if timeoutSecStr != "" {
+		if dur, err := time.ParseDuration(timeoutSecStr + "s"); err == nil {
+			time.Sleep(dur)
+		}
+	}
+
 	conn, err := websocket.Upgrade(w, r, w.Header(), 1024, 1024)
 	if err != nil {
 		http.Error(w, "Could not open websocket connection", http.StatusBadRequest)
