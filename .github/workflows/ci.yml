@@ -10,12 +10,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
         with:
-          submodules: 'recursive'
+          submodules: "recursive"
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: '0.109.0'
+          hugo-version: "0.115.2"
           extended: true
 
       - name: Build
@@ -60,14 +60,12 @@ jobs:
     runs-on: ubuntu-22.04
     needs: build-image
     steps:
-
-    - name: deploy
-      uses: appleboy/ssh-action@v0.1.10
-      with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        key: ${{ secrets.PRIVATE_KEY }}
-        port: ${{ secrets.PORT }}
-        passphrase: ${{ secrets.PASSPHRASE }}
-        script: bash -c "docker pull ghcr.io/${{ github.repository }}:${{ github.sha }} && docker rm -fv hugo && docker run --name hugo -d --net=host ghcr.io/${{ github.repository }}:${{ github.sha }}"
-
+      - name: deploy
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.PRIVATE_KEY }}
+          port: ${{ secrets.PORT }}
+          passphrase: ${{ secrets.PASSPHRASE }}
+          script: bash -c "docker pull ghcr.io/${{ github.repository }}:${{ github.sha }} && docker rm -fv hugo && docker run --name hugo -d --net=host ghcr.io/${{ github.repository }}:${{ github.sha }}"
