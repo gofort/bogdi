@@ -61,7 +61,7 @@ jobs:
     needs: build-image
     steps:
       - name: deploy
-        uses: appleboy/ssh-action@v1.0.0
+        uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
