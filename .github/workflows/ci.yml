@@ -68,4 +68,4 @@ jobs:
           key: ${{ secrets.PRIVATE_KEY }}
           port: ${{ secrets.PORT }}
           passphrase: ${{ secrets.PASSPHRASE }}
-          script: bash -c "docker pull ghcr.io/${{ github.repository }}:${{ github.sha }} && docker rm -fv hugo && docker run --name hugo -d --net=host ghcr.io/${{ github.repository }}:${{ github.sha }}"
+          script: bash -c "docker pull ghcr.io/${{ github.repository }}:${{ github.sha }} && docker rm -fv hugo && docker run --restart=always --name hugo -d --net=host ghcr.io/${{ github.repository }}:${{ github.sha }}"
