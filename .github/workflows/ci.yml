@@ -15,7 +15,7 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: "0.123.8"
+          hugo-version: "0.124.1"
           extended: true
 
       - name: Build
@@ -61,7 +61,7 @@ jobs:
     needs: build-image
     steps:
       - name: deploy
-        uses: appleboy/ssh-action@v1.0.0
+        uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
