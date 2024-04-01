@@ -2,7 +2,7 @@ baseurl: https://bogdi.xyz
 languageCode: en-us
 theme: hugo-theme-stack
 paginate: 5
-title: "Bogdan Kurnosov"
+title: "CDN Test Website"
 enableGitInfo: true
 
 # Theme i18n support
@@ -22,7 +22,7 @@ params:
 
     footer:
         since: 2020
-        # customText: 
+        # customText:
 
     dateFormat:
         published: Jan 02, 2006
@@ -113,25 +113,13 @@ menu:
           name: GitHub
           url: https://github.com/gofort
           params:
-            icon: brand-github
-            
+              icon: brand-github
+
         - identifier: linkedin
           name: Linkedin
           url: https://www.linkedin.com/in/bogdan-kurnosov/
           params:
-            icon: brand-linkedin
-
-        - identifier: twitter
-          name: Twitter
-          url: https://twitter.com/bogdi_gulyaet
-          params:
-            icon: brand-twitter
-
-        - identifier: instagram
-          name: Instagram
-          url: https://www.instagram.com/bogdi_gulyaet/
-          params:
-            icon: brand-instagram
+              icon: brand-linkedin
 
 related:
     includeNewer: true
