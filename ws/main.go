@@ -9,9 +9,19 @@ import (
 )
 
 func main() {
+	http.HandleFunc("/headers", headersHandler)
 	http.HandleFunc("/ws", wsHandler)
 
 	panic(http.ListenAndServe(":8080", nil))
+}
+
+func headersHandler(w http.ResponseWriter, r *http.Request) {
+	// Iterate over the headers and print them
+	for name, values := range r.Header {
+		for _, value := range values {
+			fmt.Fprintf(w, "%s: %s\n", name, value)
+		}
+	}
 }
 
 func wsHandler(w http.ResponseWriter, r *http.Request) {
