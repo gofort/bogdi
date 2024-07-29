@@ -11,8 +11,40 @@ import (
 func main() {
 	http.HandleFunc("/headers", headersHandler)
 	http.HandleFunc("/ws", wsHandler)
+	http.HandleFunc("/slow-buffer", slowBufferResponseHandler)
 
 	panic(http.ListenAndServe(":8080", nil))
+}
+
+func slowBufferResponseHandler(w http.ResponseWriter, r *http.Request) {
+	// Create a large buffer (e.g., 10 MB of 'a')
+	const bufferSize = 10 * 1024 * 1024 // 10 MB
+	buffer := make([]byte, bufferSize)
+	for i := range buffer {
+		buffer[i] = 'a'
+	}
+
+	// Set the appropriate headers
+	w.Header().Set("Content-Type", "text/plain")
+	w.WriteHeader(http.StatusOK)
+
+	// Define the chunk size
+	const chunkSize = 1024 // 1 KB
+
+	// Send the buffer in chunks with a delay between each chunk
+	for i := 0; i < len(buffer); i += chunkSize {
+		end := i + chunkSize
+		if end > len(buffer) {
+			end = len(buffer)
+		}
+
+		// Write the chunk to the response
+		w.Write(buffer[i:end])
+		w.(http.Flusher).Flush() // Flush the buffer to the client
+
+		// Simulate network latency or slow response
+		time.Sleep(500 * time.Millisecond) // Sleep for 500 milliseconds between chunks
+	}
 }
 
 func headersHandler(w http.ResponseWriter, r *http.Request) {
@@ -49,6 +81,11 @@ func wsHandler(w http.ResponseWriter, r *http.Request) {
 
 		for {
 
+			if conn == nil {
+				fmt.Println("connection is nil")
+				break
+			}
+
 			if err = conn.WriteJSON(&map[string]string{
 				"message": "hello world " + fmt.Sprint(i),
 			}); err != nil {
@@ -61,6 +98,11 @@ func wsHandler(w http.ResponseWriter, r *http.Request) {
 		}
 	} else {
 
+		if conn == nil {
+			fmt.Println("connection is nil 0")
+			return
+		}
+
 		if err = conn.WriteJSON(&map[string]string{
 			"message": "Send at time 0",
 		}); err != nil {
@@ -69,6 +111,11 @@ func wsHandler(w http.ResponseWriter, r *http.Request) {
 		}
 
 		time.Sleep(time.Second * 5)
+
+		if conn == nil {
+			fmt.Println("connection is nil 5")
+			return
+		}
 
 		if err = conn.WriteJSON(&map[string]string{
 			"message": "Send at time 5",
@@ -79,6 +126,11 @@ func wsHandler(w http.ResponseWriter, r *http.Request) {
 
 		time.Sleep(time.Second * 15)
 
+		if conn == nil {
+			fmt.Println("connection is nil 20")
+			return
+		}
+
 		if err = conn.WriteJSON(&map[string]string{
 			"message": "Send at time 20",
 		}); err != nil {
@@ -87,6 +139,11 @@ func wsHandler(w http.ResponseWriter, r *http.Request) {
 		}
 
 		time.Sleep(time.Second * 15)
+
+		if conn == nil {
+			fmt.Println("connection is nil 15")
+			return
+		}
 
 		if err = conn.WriteJSON(&map[string]string{
 			"message": "Send at time 35",
