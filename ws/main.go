@@ -17,6 +17,10 @@ func main() {
 }
 
 func slowBufferResponseHandler(w http.ResponseWriter, r *http.Request) {
+
+	fmt.Println("slowBufferResponseHandler")
+	startOfReq := time.Now()
+
 	// Create a large buffer (e.g., 10 MB of 'a')
 	const bufferSize = 10 * 1024 * 1024 // 10 MB
 	buffer := make([]byte, bufferSize)
@@ -40,6 +44,9 @@ func slowBufferResponseHandler(w http.ResponseWriter, r *http.Request) {
 
 		// Write the chunk to the response
 		w.Write(buffer[i:end])
+		w.Write([]byte("\n")) // Add a newline after each chunk
+		w.Write([]byte(time.Since(startOfReq).String()))
+		w.Write([]byte("\n"))    // Add a newline after each chunk
 		w.(http.Flusher).Flush() // Flush the buffer to the client
 
 		// Simulate network latency or slow response
