@@ -61,7 +61,7 @@ jobs:
           server: storage.bunnycdn.com
           username: bogdi-xyz-hugo
           password: ${{ secrets.ftp_password }}
-          local-dir: ./public/
+          # local-dir: ./public/
 
   # deploy-image-to-cluster:
   #   runs-on: ubuntu-22.04
