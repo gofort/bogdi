@@ -55,13 +55,20 @@ jobs:
       #       ghcr.io/${{ github.repository }}:${{ github.sha }}
       # - name: Image digest
       #   run: echo ${{ steps.docker_build.outputs.digest }}
+      - name: ls
+        run: ls -la
+      - name: ls public
+        run: ls -la ./public
+      - name: ls ws
+        run: ls -la ./ws
       - name: Deploy to Bunny Storage
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: storage.bunnycdn.com
           username: bogdi-xyz-hugo
           password: ${{ secrets.ftp_password }}
-          # local-dir: ./public/
+          server-dir: test-upload
+          local-dir: ./ws/
 
   # deploy-image-to-cluster:
   #   runs-on: ubuntu-22.04
