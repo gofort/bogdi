@@ -55,17 +55,24 @@ jobs:
             ghcr.io/${{ github.repository }}:${{ github.sha }}
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
-
-  deploy-image-to-cluster:
-    runs-on: ubuntu-22.04
-    needs: build-image
-    steps:
-      - name: deploy
-        uses: appleboy/ssh-action@v1.0.3
+      - name: Deploy to Bunny Storage
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.PRIVATE_KEY }}
-          port: ${{ secrets.PORT }}
-          passphrase: ${{ secrets.PASSPHRASE }}
-          script: bash -c "docker pull ghcr.io/${{ github.repository }}:${{ github.sha }} && docker rm -fv hugo && docker run --restart=always --name hugo -d --net=host -v /home/ubuntu/big-file:/opt/big-file ghcr.io/${{ github.repository }}:${{ github.sha }}"
+          server: storage.bunnycdn.com
+          username: bogdi-xyz-hugo
+          password: ${{ secrets.ftp_password }}
+          local-dir: ./public/
+
+  # deploy-image-to-cluster:
+  #   runs-on: ubuntu-22.04
+  #   needs: build-image
+  #   steps:
+  #     - name: deploy
+  #       uses: appleboy/ssh-action@v1.0.3
+  #       with:
+  #         host: ${{ secrets.HOST }}
+  #         username: ${{ secrets.USERNAME }}
+  #         key: ${{ secrets.PRIVATE_KEY }}
+  #         port: ${{ secrets.PORT }}
+  #         passphrase: ${{ secrets.PASSPHRASE }}
+  #         script: bash -c "docker pull ghcr.io/${{ github.repository }}:${{ github.sha }} && docker rm -fv hugo && docker run --restart=always --name hugo -d --net=host -v /home/ubuntu/big-file:/opt/big-file ghcr.io/${{ github.repository }}:${{ github.sha }}"
