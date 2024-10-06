@@ -61,14 +61,18 @@ jobs:
         run: ls -la ./public
       - name: ls ws
         run: ls -la ./ws
-      - name: Deploy to Bunny Storage
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      - name: Deploy to BunnyCDN
+        uses: ayeressian/bunnycdn-storage-deploy@v2.2.3
         with:
-          server: storage.bunnycdn.com
-          username: bogdi-xyz-hugo
-          password: ${{ secrets.ftp_password }}
-          server-dir: test-upload/
-          local-dir: ./ws/
+          source: "public"
+          destination: "www"
+          storageZoneName: "bogdi-xyz-hugo"
+          storagePassword: "${{ secrets.ftp_password }}"
+          accessKey: "${{ secrets.BUNNY_API_KEY }}"
+          pullZoneId: "${{ secrets.ZONE_ID }}"
+          upload: "true"
+          remove: "true"
+          purgePullZone: "true"
 
   # deploy-image-to-cluster:
   #   runs-on: ubuntu-22.04
