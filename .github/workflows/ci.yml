@@ -62,7 +62,7 @@ jobs:
       - name: ls ws
         run: ls -la ./ws
       - name: Deploy to BunnyCDN
-        uses: ayeressian/bunnycdn-storage-deploy@v2.2.4
+        uses: ayeressian/bunnycdn-storage-deploy@v2.2.5
         with:
           source: "public"
           # destination: "www"
