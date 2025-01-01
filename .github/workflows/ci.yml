@@ -55,17 +55,10 @@ jobs:
       #       ghcr.io/${{ github.repository }}:${{ github.sha }}
       # - name: Image digest
       #   run: echo ${{ steps.docker_build.outputs.digest }}
-      - name: ls
-        run: ls -la
-      - name: ls public
-        run: ls -la ./public
-      - name: ls ws
-        run: ls -la ./ws
       - name: Deploy to BunnyCDN
         uses: ayeressian/bunnycdn-storage-deploy@v2.2.5
         with:
           source: "public"
-          # destination: "www"
           storageZoneName: "bogdi-xyz-hugo"
           storagePassword: "${{ secrets.ftp_password }}"
           accessKey: "${{ secrets.BUNNY_API_KEY }}"
