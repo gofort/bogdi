@@ -34,7 +34,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v5
       - name: Download static
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v6
         with:
           name: static
           path: public
